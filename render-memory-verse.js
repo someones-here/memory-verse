@@ -21,7 +21,9 @@ export function renderSearchResults(results, _resultsDiv) {
     }
 
     results.forEach(verse => {
-        _resultsDiv.innerHTML += makeVerseContainer(verse);
-        _resultsDiv.innerHTML += "<br>";
+        if (!verse.tags.includes("IGNORE")) {
+            _resultsDiv.innerHTML += makeVerseContainer(verse);
+            _resultsDiv.innerHTML += "<br>";
+        }
     });
 }
